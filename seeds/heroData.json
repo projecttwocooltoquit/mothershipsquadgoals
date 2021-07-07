@@ -1,0 +1,26 @@
+[
+  {
+    "name": "A-Bomb",
+    "alias": "Bomb diggity",
+    "imagesrc": "test.jpg",
+    "int": 5000,
+    "str": 20,
+    "speed": 50
+  },
+  {
+    "name": "Etrigan",
+    "alias": "E-dog",
+    "imagesrc": "anothertest.jpg",
+    "int": 5,
+    "str": 100,
+    "speed": 5
+  },
+  {
+    "name": "Falcon",
+    "alias": "Bird guy",
+    "imagesrc": "yetanothertest.jpg",
+    "int": 1,
+    "str": 2000,
+    "speed": 500
+  }
+]
