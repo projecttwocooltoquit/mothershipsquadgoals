@@ -2,7 +2,12 @@ const router = require('express').Router();
 const { Hero, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
+  res.render('homepage');
+});
+
+// teampage/:id (user login id, which you'll get after the user logs in)
+router.get('/teampage', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const heroData = await Hero.findAll({
@@ -18,9 +23,9 @@ router.get('/', async (req, res) => {
     const heroes = heroData.map((hero) => hero.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', {
+    res.render('teampage', {
       heroes,
-      // logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
