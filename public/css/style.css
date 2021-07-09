@@ -1,1 +1,13 @@
+.card1 {
+  background: url(https://i.imgur.com/DQlvWhz.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding: 1.25rem;
+}
 
+.card2 {
+  background: url(https://i.imgur.com/DF0PwFA.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding: 1.25rem;
+}
