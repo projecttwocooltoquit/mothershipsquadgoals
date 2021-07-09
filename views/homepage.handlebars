@@ -1,14 +1,3 @@
-{{!-- {{#each heroes}}
-  <div>
-    Name:
-    {{name}}
-  </div>
-  <div>
-    Int:
-    {{int}}
-  </div>
-{{/each}} --}}
-
 <div
   class='block is-flex is-flex-direction-column is-justify-content-center is-align-items-center mt-6'
 >
@@ -26,24 +15,37 @@
     </div>
   </article>
 
-  <form class='box is-half'>
+  <form class='box is-half' id='login-form'>
     <div class='field'>
       <label class='label'>Email</label>
       <div class='control'>
-        <input class='input' type='email' placeholder='e.g. alex@example.com' />
+        <input
+          class='input'
+          id='email-login'
+          type='email'
+          placeholder='e.g. alex@example.com'
+        />
       </div>
     </div>
 
     <div class='field'>
       <label class='label'>Password</label>
       <div class='control'>
-        <input class='input' type='password' placeholder='********' />
+        <input
+          class='input'
+          id='password-login'
+          type='password'
+          placeholder='********'
+        />
       </div>
     </div>
 
     <button class='button is-primary'>Sign in</button>
   </form>
 
-  <button class='button is-ghost'>New here? Create an account!</button>
+  <button class='button is-ghost' id='new-user-button'>New here? Create an
+    account!</button>
 
 </div>
+
+<script src='/js/login.js'></script>
