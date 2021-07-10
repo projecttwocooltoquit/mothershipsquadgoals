@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 const { json } = require('body-parser');
 const fs = require('fs');
 const { builtinModules } = require('module');
-const heroes = require('./api/heroes');
+const heroes = require('../public/js/heroes');
 
 router.get('/', (req, res) => {
   res.render('homepage');

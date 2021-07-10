@@ -3,28 +3,16 @@
 const router = require('express').Router();
 const { Hero } = require('../../models');
 const withAuth = require('../../utils/auth');
-const heroes = require('./heroes');
+const heroes = require('../../public/js/heroes');
 
+// when someone creates a team, you're going to
 router.post('/', async (req, res) => {
   try {
-    const oneHero = heroes[1];
-
-    heroData = {
-      name: oneHero.name,
-      alias: oneHero.alias,
-      imagesrc: oneHero.image.url,
-      intelligence: oneHero.powerstats.intelligence,
-      strength: oneHero.powerstats.strength,
-      speed: oneHero.powerstats.speed,
-    };
-    console.log(heroData);
-    const strHero = JSON.stringify(heroData);
-
     const newHero = await Hero.create({
-      strHero,
-      // user_id: req.session.user_id,
+      ...req.body,
+      user_id: req.session.user_id,
     });
-    res.status(200).json(newHero);
+    res.status(200).json(newProject);
   } catch (err) {
     res.status(400).json(err);
   }
