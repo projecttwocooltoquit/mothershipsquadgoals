@@ -2,6 +2,7 @@ const axios = require('axios');
 const { json } = require('body-parser');
 const fs = require('fs');
 const { builtinModules } = require('module');
+const heroes = require('./heroes');
 
 for (i = 1; i < 732; i++) {
   axios
@@ -20,3 +21,9 @@ for (i = 1; i < 732; i++) {
     })
     .catch((err) => console.error(err));
 }
+
+heroes.filter((hero) => {
+  if (hero.powerstats.strength > 90) {
+    return hero;
+  }
+});
