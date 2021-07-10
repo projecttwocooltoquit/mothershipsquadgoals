@@ -1,4 +1,4 @@
-const heroes = [
+export const heroes = [
   {
     response: 'success',
     id: '27',
