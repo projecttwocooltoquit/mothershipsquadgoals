@@ -7,19 +7,16 @@ const loginFormHandler = async (event) => {
 
   if (email && password) {
     // Send a POST request to the API endpoint
-    const response = await fetch('/api/users/login', {
+    fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-      // If successful, redirect the browser to the profile page
-      // this will be /teampage/userID you get from this response ^^^
-      document.location.replace('/teampage');
-    } else {
-      alert(response.statusText);
-    }
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        document.location.replace(`/teampage/${data.user.id}`);
+      });
   }
 };
 

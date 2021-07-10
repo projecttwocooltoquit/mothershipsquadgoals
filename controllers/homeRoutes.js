@@ -1,16 +1,21 @@
 const router = require('express').Router();
 const { Hero, User } = require('../models');
 const withAuth = require('../utils/auth');
+const { json } = require('body-parser');
+const fs = require('fs');
+const { builtinModules } = require('module');
+const heroes = require('./api/heroes');
 
 router.get('/', (req, res) => {
   res.render('homepage');
 });
 
 // teampage/:id (user login id, which you'll get after the user logs in)
-router.get('/teampage', async (req, res) => {
+router.get('/teampage/:id', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // // Get all projects and JOIN with user data
     const heroData = await Hero.findAll({
+      where: { user_id: req.params.id },
       include: [
         {
           model: User,
@@ -19,7 +24,7 @@ router.get('/teampage', async (req, res) => {
       ],
     });
 
-    // Serialize data so the template can read it
+    // // Serialize data so the template can read it
     const heroes = heroData.map((hero) => hero.get({ plain: true }));
 
     // Pass serialized data and session flag into template
@@ -32,18 +37,23 @@ router.get('/teampage', async (req, res) => {
   }
 });
 
-router.get('/newuser', (req, res) => {
-  res.render('newuser');
+router.get('/teambuilder', (req, res) => {
+  try {
+    heroes.filter((hero) => {
+      if (hero.powerstats.strength > 90) {
+        return hero;
+      }
+    });
+    res.render('teambuilder', {
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-router.post('/createuser', async (req, res) => {
-  // create a new category
-  try {
-    const userData = await User.create(req.body);
-    res.status(200).json(userData);
-  } catch (err) {
-    res.status(400).json(err);
-  }
+router.get('/newuser', (req, res) => {
+  res.render('newuser');
 });
 
 module.exports = router;
