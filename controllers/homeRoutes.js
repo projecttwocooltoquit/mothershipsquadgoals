@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 const { json } = require('body-parser');
 const fs = require('fs');
 const { builtinModules } = require('module');
-const heroes = require('../public/js/heroes');
+const heroes = require('../public/js/heroes.js');
 
 router.get('/', (req, res) => {
   res.render('homepage');
@@ -39,12 +39,8 @@ router.get('/teampage/:id', async (req, res) => {
 
 router.get('/teambuilder', (req, res) => {
   try {
-    heroes.filter((hero) => {
-      if (hero.powerstats.strength > 90) {
-        return hero;
-      }
-    });
     res.render('teambuilder', {
+      heroes,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
