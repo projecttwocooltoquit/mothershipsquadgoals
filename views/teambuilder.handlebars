@@ -2,7 +2,7 @@
   <div class='tile is-4 is-vertical is-parent'>
     <div class='tile is-child box'>
       <p class='title'>Your current squad</p>
-      {{#each heroes}}
+      {{!-- {{#each heroes}}
         <div class='card'>
           <div class='card-image'>
             <figure class='image is-4by3'>
@@ -34,7 +34,7 @@
             </div>
           </div>
         </div>
-      {{/each}}
+      {{/each}} --}}
     </div>
   </div>
   <div class='tile is-parent'>
@@ -42,23 +42,24 @@
       <p class='title'>Choose a new squad</p>
       <p>I want a squad with high...</p>
       <button
-        class='button'
+        class='button stat-btn'
         data-stat='strength'
-        onclick='heroHandler(this)'
+        onclick='squadTypeHandler(this)'
       >Strength</button>
       <button
-        class='button'
+        class='button stat-btn'
         data-stat='intelligence'
-        onclick='heroHandler(this)'
+        onclick='squadTypeHandler(this)'
       >Intelligence</button>
       <button
-        class='button'
+        class='button stat-btn'
         data-stat='speed'
-        onclick='heroHandler(this)'
+        onclick='squadTypeHandler(this)'
       >Speed</button>
     </div>
     <div class='tile is-child box'>
       <p class='title'>Squad choices go here</p>
+      <button class='button stat-btn' id='squad-sel-btn'>I WANT THIS SQUAD!</button>
       <p>Squad options go here</p>
     </div>
   </div>
