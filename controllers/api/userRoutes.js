@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// creates a new user on login from front end info
 router.post('/createuser', async (req, res) => {
-  // create a new category
   try {
     const userData = await User.create(req.body);
     res.status(200).json(userData);
@@ -42,6 +42,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// not currently using a logout function
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

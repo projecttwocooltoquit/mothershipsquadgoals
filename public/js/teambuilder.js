@@ -1,9 +1,4 @@
-// create user id when you call the post route and pass it through
-// import hero js here
-// grab random hero
-// send the body of that hero to the post route in heroroutes
-// sending the body of the hero from the front end not the back end
-
+// how can we import heroes????
 // import { heroes } from '../../modules/heroes';
 const heroes = [
   {
@@ -429,30 +424,83 @@ const heroes = [
   },
 ];
 
-const squadOption = [];
+let squadOption = [];
 
-const heroHandler = (button) => {
+const squadTypeHandler = (button) => {
+  squadOption = [];
   const selectedStat = button.getAttribute('data-stat');
-  console.log(selectedStat);
+
   if (selectedStat === 'strength') {
     heroes.filter((hero) => {
-      if (hero.powerstats.strength > 75) {
-        console.log(hero.name, hero.powerstats.strength);
+      if (hero.powerstats.strength > 50) {
+        squadOption.push(hero);
       }
     });
   } else if (selectedStat === 'intelligence') {
     heroes.filter((hero) => {
-      if (hero.powerstats.intelligence > 75) {
-        console.log(hero.name, hero.powerstats.intelligence);
+      if (hero.powerstats.intelligence > 50) {
+        squadOption.push(hero);
       }
     });
   } else if (selectedStat === 'speed') {
     heroes.filter((hero) => {
-      if (hero.powerstats.speed > 75) {
-        console.log(hero.name, hero.powerstats.speed);
+      if (hero.powerstats.speed > 10) {
+        squadOption.push(hero);
       }
     });
   }
 };
 
-document.querySelector('.button').addEventListener('click', heroHandler);
+const squadCommitHandler = () => {
+  // rearranging the squad options array so that the same 5 heroes are not the only options
+  let shuffledOptions = squadOption.sort(() => 0.5 - Math.random());
+  // slicing 5 options from the shuffled array to serve as the final 5 choices for the user
+  const finalFiveOptions = shuffledOptions.slice(0, 5);
+
+  // empty array to store the objects we want to push to back end for db commit
+  const squadReq = [];
+
+  // looping through final 5 options, pulling out only the info we need from the hero, creating an object and pushing it into squadreq array
+  finalFiveOptions.forEach((hero) => {
+    trimmedHero = {
+      name: hero.name,
+      imagesrc: hero.image.url,
+      alias: hero.biography.aliases[0],
+      int: hero.powerstats.intelligence,
+      str: hero.powerstats.strength,
+      speed: hero.powerstats.speed,
+    };
+    squadReq.push(trimmedHero);
+  });
+
+  // if the user is choosing a new squad their previous set of heroes must be deleted so each user has no more than 5 - this will send a delete request to back end to remove heroes from db where user_id matches logged in user
+  const response = fetch('/api/heroes/delete', {
+    method: 'DELETE',
+  });
+
+  if (response.ok) {
+    console.log('heroes added for this user');
+  } else {
+    alert(response.statusText);
+  }
+
+  // looping through each hero object we stored from above to commit it to the db through a post request
+  squadReq.forEach((hero) => {
+    const response = fetch('/api/heroes/', {
+      method: 'POST',
+      body: JSON.stringify(hero),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      console.log('heroes added for this user');
+    } else {
+      console.log(response.statusText);
+    }
+  });
+};
+
+document.querySelector('.stat-btn').addEventListener('click', squadTypeHandler);
+document
+  .querySelector('#squad-sel-btn')
+  .addEventListener('click', squadCommitHandler);
