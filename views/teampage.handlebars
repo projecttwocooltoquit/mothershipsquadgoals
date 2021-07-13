@@ -1,15 +1,15 @@
-<div class='tile is-ancestor'>
-  <div class='tile is-6 is-vertical is-parent'>
-    <div class='tile is-child card1'>
+<div class='columns is-half teampage'>
+  <div class='column'>
+    <div class='welcomeBack'>
       <p class='title'>Welcome back, {{name}}!</p>
       <p>What would you like to do?</p>
-      <button class='button is-white' id='editsquad-btn'>Edit My Squad</button>
-      <button class='button is-white' id='highscores-btn'>View Highscores</button>
-      <button class='button is-white' id='battle-btn'>Battle</button>
+      <button class='button teampageButtons' id='editsquad-btn'>Edit My Squad</button>
+      <button class='button teampageButtons' id='highscores-btn'>View Highscores</button>
+      <button class='button teampageButtons' id='battle-btn'>Battle</button>
     </div>
   </div>
-  <div class='tile is-parent'>
-    <div class='tile is-child card2'>
+  <div class='column'>
+    <div class='yourSquad'>
       <p class='title'>Your Squad</p>
       {{#each heroes}}
         <div class='card'>

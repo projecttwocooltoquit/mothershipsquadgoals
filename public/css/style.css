@@ -1,13 +1,77 @@
-.card1 {
-  background: url(https://i.imgur.com/DQlvWhz.jpg) no-repeat;
-  background-size: cover;
-  background-position: center center;
-  padding: 1.25rem;
+:root {
+  --colorMain: rgb(236, 202, 5) ;
+  --colorSec: rgb(150, 2, 2);
+  --colorThi: rgb(255, 138, 5);
 }
 
-.card2 {
-  background: url(https://i.imgur.com/DF0PwFA.jpg) no-repeat;
+
+/* Teampage.handlebar Classes */
+
+.teampage {
+  font-family: sans-serif;
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(https://wallpaperaccess.com/full/2200156.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
-  padding: 1.25rem;
+  opacity: 1.3;
+  }
+
+.welcomeBack { 
+  background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url(https://i.imgur.com/DQlvWhz.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding: 2rem;
+  font-weight:bolder;
+  text-shadow:
+  -0.5px -0.5px var(--colorSec);
+  width: 60%;
+  margin-left: 25%;
+  margin-right: 15%;
+  margin-top: 45%;
+  margin-bottom: 30%;
+  height: 50%;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: var(--colorSec);
+  box-shadow: 0 0px 22px 3px white;
+  position: relative;
 }
+
+.yourSquad {
+  color: black;
+  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(https://i.imgur.com/DF0PwFA.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding: 2rem;
+  font-weight:bolder;
+  text-shadow:
+  -0.5px -0.5px var(--colorMain);
+  width: 60%;
+  margin-left: 15%;
+  margin-right: 25%;
+  margin-top: 45%;
+  margin-bottom: 30%;
+  height: 50%;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: var(--colorThi);
+  box-shadow: 0 0px 22px 3px white;
+}
+
+.teampageButtons {
+  color: var(--colorMain);
+  background-color: var(--colorSec);
+  border-radius: 20px;
+  border-style: solid;
+  border-color: var(--colorThi);
+  position: relative;
+  flex-wrap: wrap;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 6%;
+}
+
+
+
+/* Battle.handlebar Classes */
+
+
