@@ -1,26 +1,27 @@
 :root {
-  --colorMain: rgb(211, 180, 4) ;
+  --colorMain: rgb(211, 180, 4);
   --colorSec: rgb(136, 5, 5);
   --colorThi: rgb(255, 138, 5);
 }
-
 
 /* Teampage.handlebar Classes */
 
 .teampage {
   font-family: sans-serif;
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(95, 70, 70, 0.5) ), url(https://bloximages.newyork1.vip.townnews.com/theadvocate.com/content/tncms/assets/v3/editorial/2/54/2549120d-cab4-5fb6-af77-9f4c3d37bbaf/5cacf19c9fec0.image.jpg?resize=1200%2C642) no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(95, 70, 70, 0.5)),
+    url(https://bloximages.newyork1.vip.townnews.com/theadvocate.com/content/tncms/assets/v3/editorial/2/54/2549120d-cab4-5fb6-af77-9f4c3d37bbaf/5cacf19c9fec0.image.jpg?resize=1200%2C642)
+      no-repeat;
   background-size: cover;
   background-position: center center;
   opacity: 1.3;
-  }
+}
 
-.welcomeBack { 
+.welcomeBack {
   color: black;
   font-weight: bolder;
-  text-shadow:
-  -0.5px -0.5px var(--colorSec);
-  background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url(https://i.imgur.com/DQlvWhz.jpg) no-repeat;
+  text-shadow: -0.5px -0.5px var(--colorSec);
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url(https://i.imgur.com/DQlvWhz.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
   padding: 2rem;
@@ -40,9 +41,9 @@
 .yourSquad {
   color: black;
   font-weight: bolder;
-  text-shadow:
-  -0.5px -0.5px var(--colorMain);
-  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(https://i.imgur.com/DF0PwFA.jpg) no-repeat;
+  text-shadow: -0.5px -0.5px var(--colorMain);
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(https://i.imgur.com/DF0PwFA.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
   padding: 2rem;
@@ -71,24 +72,22 @@
   margin-top: 6%;
 }
 
-
-
 /* Battle.handlebar Classes */
 
 .battle {
   font-family: sans-serif;
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://wallpaperaccess.com/full/2200156.jpg) no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(https://wallpaperaccess.com/full/2200156.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
   opacity: 1.3;
-  }
+}
 
-.hero1 { 
+.hero1 {
   color: white;
   font-weight: bolder;
   text-align: center;
-  text-shadow:
-  -1px -1px var(--colorMain);
+  text-shadow: -1px -1px var(--colorMain);
   background: var(--colorSec);
   background-size: cover;
   background-position: center center;
@@ -110,8 +109,7 @@
   color: white;
   font-weight: bolder;
   text-align: center;
-  text-shadow:
-  -1px -1px var(--colorMain);
+  text-shadow: -1px -1px var(--colorMain);
   background: var(--colorSec);
   background-size: cover;
   background-position: center center;
@@ -148,4 +146,57 @@
   border-style: solid;
   border-color: var(--colorSec);
   box-shadow: 0 0px 26px 10px var(--colorMain);
+}
+
+/* teambuilder.handlebar classes*/
+
+.builder {
+  background-color: black;
+  height: 100%;
+}
+
+.current-hero {
+  background: black;
+}
+
+.card-content {
+  background-color: black;
+}
+
+.content {
+  color: white;
+  font-weight: bold;
+  font-size: large;
+}
+
+.stat-btn {
+  background-color: black;
+  color: white;
+  border: black solid;
+  padding: 10px;
+  margin: 10%;
+}
+
+.hero-text {
+  color: white;
+  font-weight: bold;
+}
+
+.title {
+  color: red;
+  font-size: 3em;
+  font-weight: bolder;
+}
+
+.glow {
+  box-shadow: 0 0px 26px 10px red;
+}
+
+.hero-button {
+  display: flex;
+  justify-content: center;
+}
+
+.card-background {
+  background-color: black;
 }
