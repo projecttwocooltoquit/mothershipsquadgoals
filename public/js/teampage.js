@@ -1,5 +1,6 @@
 const editSquad = () => {
-  document.location.replace('/teambuilder');
+  // need to add the user id here somehow?
+  document.location.replace('/teambuilder/:id');
 };
 
 const getHighscores = () => {
