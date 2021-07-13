@@ -424,83 +424,141 @@ const heroes = [
   },
 ];
 
-let squadOption = [];
+let heroChoices = [];
+let finalHeroChoice;
 
-const squadTypeHandler = (button) => {
-  squadOption = [];
+const heroTypeHandler = (button) => {
+  console.log(finalHeroChoice);
+  heroChoices = [];
   const selectedStat = button.getAttribute('data-stat');
 
   if (selectedStat === 'strength') {
     heroes.filter((hero) => {
       if (hero.powerstats.strength > 50) {
-        squadOption.push(hero);
+        heroChoices.push(hero);
       }
     });
   } else if (selectedStat === 'intelligence') {
     heroes.filter((hero) => {
       if (hero.powerstats.intelligence > 50) {
-        squadOption.push(hero);
+        heroChoices.push(hero);
       }
     });
   } else if (selectedStat === 'speed') {
     heroes.filter((hero) => {
       if (hero.powerstats.speed > 10) {
-        squadOption.push(hero);
+        heroChoices.push(hero);
       }
     });
   }
+  // chooses a random hero from the refined list based on stats
+  const randomHeroChoice =
+    heroChoices[Math.floor(Math.random() * heroChoices.length)];
+
+  // creates an object with only the info we want for the db/cards
+  const trimmedHero = {
+    name: randomHeroChoice.name,
+    imagesrc: randomHeroChoice.image.url,
+    alias: randomHeroChoice.biography.aliases[0],
+    int: randomHeroChoice.powerstats.intelligence,
+    str: randomHeroChoice.powerstats.strength,
+    speed: randomHeroChoice.powerstats.speed,
+  };
+
+  finalHeroChoice = trimmedHero;
+
+  const heroImage = document.createElement('img');
+  heroImage.setAttribute('src', `${finalHeroChoice.imagesrc}`);
+  document.querySelector('#hero-image').appendChild(heroImage);
+
+  document.querySelector(
+    '#hero-name'
+  ).innerHTML = `Name: ${finalHeroChoice.name}`;
+  document.querySelector(
+    '#hero-alias'
+  ).innerHTML = `Alias: ${finalHeroChoice.alias}`;
+  document.querySelector(
+    '#hero-strength'
+  ).innerHTML = `Strength: ${finalHeroChoice.str}`;
+  document.querySelector(
+    '#hero-intelligence'
+  ).innerHTML = `Intelligence: ${finalHeroChoice.int}`;
+  document.querySelector(
+    '#hero-speed'
+  ).innerHTML = `Speed: ${finalHeroChoice.speed}`;
+
+  document.querySelector('#hero-choice-box').classList.remove('is-hidden');
 };
 
-const squadCommitHandler = () => {
-  // rearranging the squad options array so that the same 5 heroes are not the only options
-  let shuffledOptions = squadOption.sort(() => 0.5 - Math.random());
-  // slicing 5 options from the shuffled array to serve as the final 5 choices for the user
-  const finalFiveOptions = shuffledOptions.slice(0, 5);
-
-  // empty array to store the objects we want to push to back end for db commit
-  const squadReq = [];
-
-  // looping through final 5 options, pulling out only the info we need from the hero, creating an object and pushing it into squadreq array
-  finalFiveOptions.forEach((hero) => {
-    trimmedHero = {
-      name: hero.name,
-      imagesrc: hero.image.url,
-      alias: hero.biography.aliases[0],
-      int: hero.powerstats.intelligence,
-      str: hero.powerstats.strength,
-      speed: hero.powerstats.speed,
-    };
-    squadReq.push(trimmedHero);
-  });
-
-  // if the user is choosing a new squad their previous set of heroes must be deleted so each user has no more than 5 - this will send a delete request to back end to remove heroes from db where user_id matches logged in user
-  const response = fetch('/api/heroes/delete', {
+const heroCommitHandler = () => {
+  // if the user is choosing a new hero their previous hero must be deleted so each user has no more than 1 - this will send a delete request to back end to remove heroes from db where user_id matches logged in user
+  // can these two be combined to be a put request now that we only have one hero per user??
+  // both of these requests work - db is appropriately update but we get errors?
+  const deleteResponse = fetch('/api/heroes/delete', {
     method: 'DELETE',
   });
-
-  if (response.ok) {
-    console.log('heroes added for this user');
+  if (deleteResponse.ok) {
+    console.log("User's hero has been deleted.");
   } else {
-    alert(response.statusText);
+    // returning undefined???
+    console.log(deleteResponse.statusText);
   }
-
-  // looping through each hero object we stored from above to commit it to the db through a post request
-  squadReq.forEach((hero) => {
-    const response = fetch('/api/heroes/', {
-      method: 'POST',
-      body: JSON.stringify(hero),
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-      console.log('heroes added for this user');
-    } else {
-      console.log(response.statusText);
-    }
+  // committing selected hero to db
+  const postResponse = fetch('/api/heroes/', {
+    method: 'POST',
+    body: JSON.stringify(finalHeroChoice),
+    headers: { 'Content-Type': 'application/json' },
   });
+  if (postResponse.ok) {
+    console.log("User's hero has been added.");
+  } else {
+    // returning undefined???
+    console.log(postResponse.statusText);
+  }
 };
 
-document.querySelector('.stat-btn').addEventListener('click', squadTypeHandler);
+const rerollHandler = () => {
+  // chooses a random hero from the refined list based on stats
+  const randomHeroChoice =
+    heroChoices[Math.floor(Math.random() * heroChoices.length)];
+
+  // creates an object with only the info we want for the db/cards
+  const trimmedHero = {
+    name: randomHeroChoice.name,
+    imagesrc: randomHeroChoice.image.url,
+    alias: randomHeroChoice.biography.aliases[0],
+    int: randomHeroChoice.powerstats.intelligence,
+    str: randomHeroChoice.powerstats.strength,
+    speed: randomHeroChoice.powerstats.speed,
+  };
+
+  finalHeroChoice = trimmedHero;
+
+  const heroImage = document.createElement('img');
+  heroImage.setAttribute('src', `${finalHeroChoice.imagesrc}`);
+  document.querySelector('#hero-image').appendChild(heroImage);
+
+  document.querySelector(
+    '#hero-name'
+  ).innerHTML = `Name: ${finalHeroChoice.name}`;
+  document.querySelector(
+    '#hero-alias'
+  ).innerHTML = `Alias: ${finalHeroChoice.alias}`;
+  document.querySelector(
+    '#hero-strength'
+  ).innerHTML = `Strength: ${finalHeroChoice.str}`;
+  document.querySelector(
+    '#hero-intelligence'
+  ).innerHTML = `Intelligence: ${finalHeroChoice.int}`;
+  document.querySelector(
+    '#hero-speed'
+  ).innerHTML = `Speed: ${finalHeroChoice.speed}`;
+};
+
+document.querySelector('.stat-btn').addEventListener('click', heroTypeHandler);
 document
-  .querySelector('#squad-sel-btn')
-  .addEventListener('click', squadCommitHandler);
+  .querySelector('#hero-sel-btn')
+  .addEventListener('click', heroCommitHandler);
+document
+  .querySelector('#hero-reroll-btn')
+  .addEventListener('click', rerollHandler);

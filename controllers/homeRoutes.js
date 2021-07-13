@@ -36,8 +36,23 @@ router.get('/teampage/:id', async (req, res) => {
   }
 });
 
-router.get('/teambuilder', (req, res) => {
+router.get('/teambuilder/:id', async (req, res) => {
   try {
+    // // Get all projects and JOIN with user data
+    const heroData = await Hero.findAll({
+      where: { user_id: req.params.id },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    // // Serialize data so the template can read it
+    const heroes = heroData.map((hero) => hero.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
     res.render('teambuilder', {
       heroes,
       logged_in: req.session.logged_in,
