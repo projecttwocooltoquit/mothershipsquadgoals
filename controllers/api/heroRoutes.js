@@ -18,6 +18,30 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/userhero', async (req, res) => {
+  try {
+    const heroData = await Hero.findAll({
+      where: { user_id: req.params.id },
+      include: [
+        {
+          model: User,
+        },
+      ],
+    });
+
+    // // Serialize data so the template can read it
+    const heroes = heroData.map((hero) => hero.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('teambuilder', {
+      heroes,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // removes heroes where the user_id matches current logged in user - necessary to limit each user to 5 heroes max
 router.delete('/delete', async (req, res) => {
   try {

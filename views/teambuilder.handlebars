@@ -1,8 +1,9 @@
 <div class='tile is-ancestor'>
   <div class='tile is-4 is-vertical is-parent'>
     <div class='tile is-child box'>
-      <p class='title'>Your current squad</p>
-      {{!-- {{#each heroes}}
+      <p class='title'>Your Current Hero</p>
+
+      {{#each heroes}}
         <div class='card'>
           <div class='card-image'>
             <figure class='image is-4by3'>
@@ -34,33 +35,55 @@
             </div>
           </div>
         </div>
-      {{/each}} --}}
+      {{/each}}
+
     </div>
   </div>
   <div class='tile is-parent'>
     <div class='tile is-child box'>
-      <p class='title'>Choose a new squad</p>
-      <p>I want a squad with high...</p>
+      <p class='title'>Choose A New Hero</p>
+      <p>I want a hero with high...</p>
       <button
         class='button stat-btn'
         data-stat='strength'
-        onclick='squadTypeHandler(this)'
+        onclick='heroTypeHandler(this)'
       >Strength</button>
       <button
         class='button stat-btn'
         data-stat='intelligence'
-        onclick='squadTypeHandler(this)'
+        onclick='heroTypeHandler(this)'
       >Intelligence</button>
       <button
         class='button stat-btn'
         data-stat='speed'
-        onclick='squadTypeHandler(this)'
+        onclick='heroTypeHandler(this)'
       >Speed</button>
     </div>
-    <div class='tile is-child box'>
-      <p class='title'>Squad choices go here</p>
-      <button class='button stat-btn' id='squad-sel-btn'>I WANT THIS SQUAD!</button>
-      <p>Squad options go here</p>
+
+    <div class='tile is-child box is-hidden' id='hero-choice-box'>
+      <div class='card'>
+        <div class='card-image'>
+          <figure class='image is-square' id='hero-image'>
+
+          </figure>
+        </div>
+        <div class='card-content'>
+          <div class='content'>
+            <p id='hero-name'>
+            </p>
+            <p id='hero-alias'>
+            </p>
+            <p id='hero-strength'>
+            </p>
+            <p id='hero-intelligence'>
+            </p>
+            <p id='hero-speed'>
+            </p>
+          </div>
+        </div>
+      </div>
+      <button class='button' id='hero-sel-btn'>Choose This Hero</button>
+      <button class='button' id='hero-reroll-btn'>See Another Hero</button>
     </div>
   </div>
 </div>
