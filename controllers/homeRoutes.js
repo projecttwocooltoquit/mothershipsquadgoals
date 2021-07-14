@@ -62,6 +62,28 @@ router.get('/teambuilder', async (req, res) => {
   }
 });
 
+router.get('/userhero', async (req, res) => {
+  try {
+    // // Get all projects and JOIN with user data
+    const heroData = await Hero.findAll({
+      where: { user_id: req.session.user_id },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const userHero = heroData.map((hero) => hero.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.json(userHero);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/newuser', (req, res) => {
   res.render('newuser');
 });
