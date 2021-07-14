@@ -53,13 +53,23 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/updatescore', async (req, res) => {
   // update a user by its `id` value
   try {
     const userData = await User.update(
       { score: req.body.score },
       { where: { id: req.session.id } }
     );
+
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findOne({ where: { id: req.session.id } });
 
     res.status(200).json(userData);
   } catch (err) {
