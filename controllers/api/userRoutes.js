@@ -53,4 +53,18 @@ router.post('/logout', (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  // update a user by its `id` value
+  try {
+    const userData = await User.update(
+      { score: req.body.score },
+      { where: { id: req.session.id } }
+    );
+
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
