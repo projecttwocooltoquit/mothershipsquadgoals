@@ -45,6 +45,11 @@ class Character {
       const aliveBlurb = document.createElement('p');
       aliveBlurb.innerHTML = `${this.name} has been defeated!`;
       document.querySelector('#fight-sim').appendChild(aliveBlurb);
+
+      if (this.name !== pOneHero.name) {
+        // write put request here
+      }
+
       return false;
     }
     return true;
@@ -89,7 +94,17 @@ const getUserHero = () => {
         // If either character is not alive, end the game
         if (!playerOne.isAlive() || !playerTwoRandom.isAlive()) {
           clearInterval(turnInterval);
-          console.log('Game over!');
+
+          const gameOver = document.createElement('p');
+          gameOver.innerHTML = `GAME OVER!`;
+          gameOver.setAttribute('style', 'color: red');
+          document.querySelector('#fight-sim').appendChild(gameOver);
+
+          const tryAgain = document.createElement('button');
+          tryAgain.innerHTML = 'Play again!';
+          tryAgain.setAttribute('class', 'button is-dark');
+          tryAgain.setAttribute('onclick', 'window.location.reload()');
+          document.querySelector('#fight-sim').appendChild(tryAgain);
         } else if (playerOneRandomTurn) {
           playerOne.attack(playerTwoRandom);
           playerTwoRandom.printStats();
