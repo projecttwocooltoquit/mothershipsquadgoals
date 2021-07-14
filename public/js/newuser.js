@@ -13,9 +13,9 @@ const newUserHandler = async (event) => {
     });
 
     if (response.ok) {
-      console.log('Heroes have been added to user');
+      alert('Account created! Return home to log in!');
     } else {
-      alert(response.statusText);
+      console.log(response.statusText);
     }
   }
 };
@@ -23,3 +23,10 @@ const newUserHandler = async (event) => {
 document
   .querySelector('#user-submit')
   .addEventListener('click', newUserHandler);
+
+document
+  .querySelector('#home')
+  .addEventListener('click', function homeHandler(event) {
+    event.preventDefault();
+    document.location.replace('/');
+  });
