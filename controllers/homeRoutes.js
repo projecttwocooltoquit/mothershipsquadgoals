@@ -36,11 +36,11 @@ router.get('/teampage/:id', async (req, res) => {
   }
 });
 
-router.get('/teambuilder/:id', async (req, res) => {
+router.get('/teambuilder', async (req, res) => {
   try {
     // // Get all projects and JOIN with user data
     const heroData = await Hero.findAll({
-      where: { user_id: req.params.id },
+      where: { user_id: req.session.user_id },
       include: [
         {
           model: User,
