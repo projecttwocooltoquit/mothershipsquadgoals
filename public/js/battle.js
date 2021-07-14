@@ -1,7 +1,3 @@
-// const heroes = require('./heroes.js');
-// import heroes from './heroes';
-// const inquirer = require('inquirer');
-
 let validCharacters = [];
 let pOneHero;
 
@@ -25,23 +21,41 @@ class Character {
   }
   // Method which prints all of the stats for a character
   printStats() {
-    console.log(`Stats for ${this.name} are as following:`);
-    console.log(`Each attack will do ${this.strength} damage.`);
-    console.log(`${this.name} has ${this.durability} hit points remaining!`);
-    console.log('------------');
+    const statBlurb = document.createElement('p');
+    const attackBlurb = document.createElement('p');
+    const hpBlurb = document.createElement('p');
+    const spacerBlurb = document.createElement('p');
+
+    statBlurb.innerHTML = `Stats for ${this.name} are as following:`;
+    document.querySelector('#fight-sim').appendChild(statBlurb);
+
+    attackBlurb.innerHTML = `Each attack will do ${this.strength} damage.`;
+    document.querySelector('#fight-sim').appendChild(attackBlurb);
+
+    hpBlurb.innerHTML = `${this.name} has ${this.durability} hit points remaining!`;
+    document.querySelector('#fight-sim').appendChild(hpBlurb);
+
+    spacerBlurb.innerHTML = '------------';
+    document.querySelector('#fight-sim').appendChild(spacerBlurb);
   }
   // Method which determines whether or not a character's "hitpoints" are less then zero
   // Returns true or false depending upon the outcome
   isAlive() {
     if (this.durability <= 0) {
-      console.log(`${this.name} has been defeated!`);
+      const aliveBlurb = document.createElement('p');
+      aliveBlurb.innerHTML = `${this.name} has been defeated!`;
+      document.querySelector('#fight-sim').appendChild(aliveBlurb);
       return false;
     }
     return true;
   }
   // Method which takes in a second object and decreases their "durability" by this character's strength
   attack(opponent) {
-    console.log(`${this.name} hit ${opponent.name} for ${this.strength}`);
+    const hitBlurb = document.createElement('p');
+    hitBlurb.innerHTML = `${this.name} hit ${opponent.name} for ${this.strength}`;
+    document.querySelector('#fight-sim').appendChild(hitBlurb);
+
+    // console.log(`${this.name} hit ${opponent.name} for ${this.strength}`);
     opponent.durability -= this.strength;
   }
 }
