@@ -3,6 +3,8 @@
 // const inquirer = require('inquirer');
 
 let validCharacters = [];
+let pOneHero;
+
 for (i = 0; i < heroes.length; i++) {
   if (
     typeof heroes[i].powerstats !== 'undefined' &&
@@ -12,33 +14,8 @@ for (i = 0; i < heroes.length; i++) {
   }
 }
 
-// need to get user's hero
-let pOneRandom =
-  validCharacters[Math.floor(Math.random() * validCharacters.length)];
 let pTwoRandom =
   validCharacters[Math.floor(Math.random() * validCharacters.length)];
-console.log(pOneRandom.name);
-console.log(pTwoRandom.name);
-
-const createEnemyCard = () => {
-  const heroImage = document.createElement('img');
-  heroImage.setAttribute('src', `${pTwoRandom.image.url}`);
-  document.querySelector('#enemy-image').appendChild(heroImage);
-
-  document.querySelector('#enemy-name').innerHTML = `Name: ${pTwoRandom.name}`;
-  document.querySelector(
-    '#enemy-alias'
-  ).innerHTML = `Alias: ${pTwoRandom.biography.aliases[0]}`;
-  document.querySelector(
-    '#enemy-strength'
-  ).innerHTML = `Strength: ${pTwoRandom.powerstats.strength}`;
-  document.querySelector(
-    '#enemy-intelligence'
-  ).innerHTML = `Intelligence: ${pTwoRandom.powerstats.intelligence}`;
-  document.querySelector(
-    '#enemy-speed'
-  ).innerHTML = `Speed: ${pTwoRandom.powerstats.speed}`;
-};
 
 class Character {
   constructor(name, strength, durability) {
@@ -68,35 +45,69 @@ class Character {
     opponent.durability -= this.strength;
   }
 }
-// Creates two unique characters using the "character" constructor
-const playerOneRandom = new Character(
-  pOneRandom.name,
-  pOneRandom.powerstats.strength,
-  pOneRandom.powerstats.durability
-);
-const playerTwoRandom = new Character(
-  pTwoRandom.name,
-  pTwoRandom.powerstats.strength,
-  pTwoRandom.powerstats.durability
-);
-// This keeps track of whose turn it is
-let playerOneRandomTurn = true;
-playerOneRandom.printStats();
-playerTwoRandom.printStats();
-const turnInterval = setInterval(() => {
-  // If either character is not alive, end the game
-  if (!playerOneRandom.isAlive() || !playerTwoRandom.isAlive()) {
-    clearInterval(turnInterval);
-    console.log('Game over!');
-  } else if (playerOneRandomTurn) {
-    playerOneRandom.attack(playerTwoRandom);
-    playerTwoRandom.printStats();
-  } else {
-    playerTwoRandom.attack(playerOneRandom);
-    playerOneRandom.printStats();
-  }
-  // Switch turns
-  playerOneRandomTurn = !playerOneRandomTurn;
-}, 2000);
+
+const getUserHero = () => {
+  fetch('/userhero')
+    .then((response) => response.text())
+    .then((data) => {
+      let parsedData = JSON.parse(data);
+      for (i = 0; i < validCharacters.length; i++) {
+        if (parsedData[0].name === validCharacters[i].name) {
+          pOneHero = validCharacters[i];
+        }
+      }
+      // Creates two unique characters using the "character" constructor
+      const playerOne = new Character(
+        pOneHero.name,
+        pOneHero.powerstats.strength,
+        pOneHero.powerstats.durability
+      );
+      const playerTwoRandom = new Character(
+        pTwoRandom.name,
+        pTwoRandom.powerstats.strength,
+        pTwoRandom.powerstats.durability
+      );
+      // This keeps track of whose turn it is
+      let playerOneRandomTurn = true;
+      playerOne.printStats();
+      playerTwoRandom.printStats();
+      const turnInterval = setInterval(() => {
+        // If either character is not alive, end the game
+        if (!playerOne.isAlive() || !playerTwoRandom.isAlive()) {
+          clearInterval(turnInterval);
+          console.log('Game over!');
+        } else if (playerOneRandomTurn) {
+          playerOne.attack(playerTwoRandom);
+          playerTwoRandom.printStats();
+        } else {
+          playerTwoRandom.attack(playerOne);
+          playerOne.printStats();
+        }
+        // Switch turns
+        playerOneRandomTurn = !playerOneRandomTurn;
+      }, 2000);
+    });
+};
+
+const createEnemyCard = () => {
+  const heroImage = document.createElement('img');
+  heroImage.setAttribute('src', `${pTwoRandom.image.url}`);
+  document.querySelector('#enemy-image').appendChild(heroImage);
+
+  document.querySelector('#enemy-name').innerHTML = `Name: ${pTwoRandom.name}`;
+  document.querySelector(
+    '#enemy-alias'
+  ).innerHTML = `Alias: ${pTwoRandom.biography.aliases[0]}`;
+  document.querySelector(
+    '#enemy-strength'
+  ).innerHTML = `Strength: ${pTwoRandom.powerstats.strength}`;
+  document.querySelector(
+    '#enemy-intelligence'
+  ).innerHTML = `Intelligence: ${pTwoRandom.powerstats.intelligence}`;
+  document.querySelector(
+    '#enemy-speed'
+  ).innerHTML = `Speed: ${pTwoRandom.powerstats.speed}`;
+};
 
 createEnemyCard();
+getUserHero();
