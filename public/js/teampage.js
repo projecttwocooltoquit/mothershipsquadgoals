@@ -1,5 +1,4 @@
 const editSquad = () => {
-  // need to add the user id here somehow?
   document.location.replace('/teambuilder');
 };
 

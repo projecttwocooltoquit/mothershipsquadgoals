@@ -1,12 +1,40 @@
 <div class='columns battle'>
   <div class='column'>
+    
     <figure class='hero1'>
-      <img 
-        src='https://www.superherodb.com/pictures2/portraits/10/100/137.jpg'
-        alt='Placeholder image'
-      />
-      <p>Hero name</p>
-      <p>Hero Stats</p>
+{{#each heroes}}
+        <div class='card glow'>
+          <div class='card-image'>
+            <figure class='image is-square'>
+              <img src='{{imagesrc}}' alt='Superhero image' />
+            </figure>
+          </div>
+          <div class='card-content'>
+            <div class='content'>
+              <p>
+                Name:
+                {{name}}
+              </p>
+              <p>
+                Alias:
+                {{alias}}
+              </p>
+              <p>
+                Strength:
+                {{str}}
+              </p>
+              <p>
+                Intelligence:
+                {{int}}
+              </p>
+              <p>
+                Speed:
+                {{speed}}
+              </p>
+            </div>
+          </div>
+        </div>
+      {{/each}}
     </figure>
   </div>
   <div class='column'>
@@ -16,12 +44,27 @@
   </div>
   <div class='column'>
     <figure class='hero2'>
-      <img 
-        src='https://www.superherodb.com/pictures2/portraits/10/100/1536.jpg'
-        alt='Placeholder image'
-      />
-      <p>Hero name</p>
-      <p>Hero Stats</p>
+      <div class='card glow'>
+        <div class='card-image'>
+          <figure class='image is-square' id='enemy-image'>
+
+          </figure>
+        </div>
+        <div class='card-content'>
+          <div class='content'>
+            <p id='enemy-name'>
+            </p>
+            <p id='enemy-alias'>
+            </p>
+            <p id='enemy-strength'>
+            </p>
+            <p id='enemy-intelligence'>
+            </p>
+            <p id='enemy-speed'>
+            </p>
+          </div>
+        </div>
+      </div>
     </figure>
 <script src='/js/heroes.js'></script>
 <script src='/js/battle.js'></script>

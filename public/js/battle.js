@@ -1,4 +1,3 @@
-console.log('whatever');
 // const heroes = require('./heroes.js');
 // import heroes from './heroes';
 // const inquirer = require('inquirer');
@@ -12,13 +11,35 @@ for (i = 0; i < heroes.length; i++) {
     validCharacters.push(heroes[i]);
   }
 }
+
+// need to get user's hero
 let pOneRandom =
   validCharacters[Math.floor(Math.random() * validCharacters.length)];
 let pTwoRandom =
   validCharacters[Math.floor(Math.random() * validCharacters.length)];
 console.log(pOneRandom.name);
 console.log(pTwoRandom.name);
-console.log(validCharacters.length);
+
+const createEnemyCard = () => {
+  const heroImage = document.createElement('img');
+  heroImage.setAttribute('src', `${pTwoRandom.image.url}`);
+  document.querySelector('#enemy-image').appendChild(heroImage);
+
+  document.querySelector('#enemy-name').innerHTML = `Name: ${pTwoRandom.name}`;
+  document.querySelector(
+    '#enemy-alias'
+  ).innerHTML = `Alias: ${pTwoRandom.biography.aliases[0]}`;
+  document.querySelector(
+    '#enemy-strength'
+  ).innerHTML = `Strength: ${pTwoRandom.powerstats.strength}`;
+  document.querySelector(
+    '#enemy-intelligence'
+  ).innerHTML = `Intelligence: ${pTwoRandom.powerstats.intelligence}`;
+  document.querySelector(
+    '#enemy-speed'
+  ).innerHTML = `Speed: ${pTwoRandom.powerstats.speed}`;
+};
+
 class Character {
   constructor(name, strength, durability) {
     this.name = name;
@@ -77,3 +98,5 @@ const turnInterval = setInterval(() => {
   // Switch turns
   playerOneRandomTurn = !playerOneRandomTurn;
 }, 2000);
+
+createEnemyCard();
