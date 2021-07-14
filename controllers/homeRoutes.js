@@ -70,8 +70,29 @@ router.get('/highscores', (req, res) => {
   res.render('highscores');
 });
 
-router.get('/battle', (req, res) => {
-  res.render('battle');
+router.get('/battle', async (req, res) => {
+  try {
+    // // Get all projects and JOIN with user data
+    const heroData = await Hero.findAll({
+      where: { user_id: req.session.user_id },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    // // Serialize data so the template can read it
+    const heroes = heroData.map((hero) => hero.get({ plain: true }));
+    // Pass serialized data and session flag into template
+    res.render('battle', {
+      heroes,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
