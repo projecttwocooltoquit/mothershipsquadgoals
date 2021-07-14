@@ -1,14 +1,105 @@
 :root {
-  --colorMain: rgb(211, 180, 4);
-  --colorSec: rgb(136, 5, 5);
+  --colorMain: rgb(230, 195, 2);
+  --colorSec: rgb(170, 3, 3);
   --colorThi: rgb(255, 138, 5);
+
+  --color4: rgb(122, 2, 2);
 }
+
+
+/* Homepage classes*/
+
+.homepage {
+  background: linear-gradient(var(--colorSec), rgba(0, 0, 0, 0.8)), url(https://i.pinimg.com/originals/b7/fe/8e/b7fe8ef5c2d845b8725922b7873fd5f3.jpg);
+  background-color: var(--colorSec);
+  color: var(--colorMain);
+}
+
+.homepageTop {
+  background-color: black;
+  background: opacity(0.5);
+  width: 100%;
+}
+
+.homepageTitle {
+  text-align: center;
+  font-size: xx-large;
+  font-family: sans-serif;
+  font-weight: bolder;
+  color: var(--colorMain);
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.intro {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 3%;
+  margin-bottom: 7%;
+  position: sticky;
+}
+
+.login {
+  background-color: var(--color4);
+  border-style: solid;
+  border-color: var(--colorMain);
+  box-shadow: 0 0px 24px 8px var(--colorThi);
+  position: relative;
+}
+
+.inputTitle {
+  color: var(--colorMain);
+  font-size: x-large;
+  font-family: sans-serif;
+  font-weight: bolder;
+}
+
+.signIn {
+  color: var(--colorSec);
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: larger;
+  padding: 0.5rem;
+  background-color: var(--colorMain);
+  border-radius: 20px;
+  border-style: solid;
+  border-color: var(--colorSec);
+  position: relative;
+  margin-top: 6%;
+  left: 27%;
+}
+
+.createAccount {
+  color: var(--colorMain);
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: larger;
+  text-decoration: underline;
+  background-color: transparent;
+  border-style: none;
+  border-radius: 40px;
+  padding: 0.5rem;
+  margin-top: 5%;
+  margin-bottom: 25%;
+}
+
+button:hover {
+  border-color: var(--colorThi);
+  border-style: solid;
+  border-width: 3px;
+  box-shadow: 0 0px 10px 3px white;
+  cursor:pointer;
+}
+
+
+
+
 
 /* Teampage.handlebar Classes */
 
 .teampage {
   font-family: sans-serif;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(95, 70, 70, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(https://bloximages.newyork1.vip.townnews.com/theadvocate.com/content/tncms/assets/v3/editorial/2/54/2549120d-cab4-5fb6-af77-9f4c3d37bbaf/5cacf19c9fec0.image.jpg?resize=1200%2C642)
       no-repeat;
   background-size: cover;
@@ -71,6 +162,7 @@
   margin-right: 20%;
   margin-top: 6%;
 }
+
 
 /* Battle.handlebar Classes */
 
@@ -148,6 +240,7 @@
   box-shadow: 0 0px 26px 10px var(--colorMain);
 }
 
+
 /* teambuilder.handlebar classes*/
 
 .builder {
@@ -183,13 +276,13 @@
 }
 
 .title {
-  color: red;
+  color: var(--colorSec);
   font-size: 3em;
   font-weight: bolder;
 }
 
 .glow {
-  box-shadow: 0 0px 26px 10px red;
+  box-shadow: 0 0px 26px 10px var(--colorSec);
 }
 
 .hero-button {
