@@ -1,12 +1,14 @@
+<div class='navbar'>
+  <button class='button glow nav-btn' onclick='history.back()'>Back To Teampage</button>
+</div>
 <div class='tile is-ancestor builder'>
   <div class='tile is-parent is-6'>
     <div class='tile is-child box current-hero'>
       <p class='title'>Your Current Hero</p>
-
       {{#each heroes}}
         <div class='card glow'>
           <div class='card-image'>
-            <figure class='image is-square'>
+            <figure class='image is-square user-image'>
               <img src='{{imagesrc}}' alt='Superhero image' />
             </figure>
           </div>
@@ -93,5 +95,5 @@
     </div>
   </div>
 </div>
-
+{{! <script src='/js/heroes.js'></script> }}
 <script src='/js/teambuilder.js'></script>

@@ -124,4 +124,8 @@ const createEnemyCard = () => {
 };
 
 createEnemyCard();
-getUserHero();
+// getUserHero();
+
+document
+  .querySelector('#commence-battle')
+  .addEventListener('click', getUserHero);
