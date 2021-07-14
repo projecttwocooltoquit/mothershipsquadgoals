@@ -1,23 +1,22 @@
 <div
-  class='block is-flex is-flex-direction-column is-justify-content-center is-align-items-center mt-6'
+  class='block is-flex is-flex-direction-column is-justify-content-center is-align-items-center homepage'
 >
-  <article class='message is-dark'>
-    <div class='message-body has-text-centered'>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec
-      nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus
-      diam, et dictum
-      <a>felis venenatis</a>
-      efficitur. Aenean ac
-      <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et
-      sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a
-      neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
+  <div class='homepageTop'>
+    <h1 class='homepageTitle'>
+    Welcome to the Hero Battle Simulator!
+    </h1>
+  </div>
+ 
+
+  <article class='is-dark'>
+    <div class='has-text-centered intro'>
+      Log-in or create a new account to begin assembling your very own squad of superheroes. Use your squad to fight battles against other heroes and villains!
     </div>
   </article>
 
-  <form class='box is-half' id='login-form'>
+  <form class='box is-half login' id='login-form'>
     <div class='field'>
-      <label class='label'>Email</label>
+      <label class='inputTitle'>Email</label>
       <div class='control'>
         <input
           class='input'
@@ -29,7 +28,7 @@
     </div>
 
     <div class='field'>
-      <label class='label'>Password</label>
+      <label class='inputTitle'>Password</label>
       <div class='control'>
         <input
           class='input'
@@ -40,10 +39,10 @@
       </div>
     </div>
 
-    <button class='button is-primary'>Sign in</button>
+    <button class='is-primary signIn'>Sign in</button>
   </form>
 
-  <button class='button is-ghost' id='new-user-button'>New here? Create an
+  <button class='createAccount' id='new-user-button'>New here? Create an
     account!</button>
 
 </div>
