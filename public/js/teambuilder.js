@@ -132,6 +132,17 @@ const rerollHandler = () => {
   ).innerHTML = `Speed: ${finalHeroChoice.speed}`;
 };
 
+const backButtonHandler = () => {
+  fetch('/api/users/', {
+    method: 'GET',
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data.id);
+      document.location.replace(`/teampage/${data.id}`);
+    });
+};
+
 document.querySelector('.stat-btn').addEventListener('click', heroTypeHandler);
 document
   .querySelector('#hero-sel-btn')
@@ -139,3 +150,6 @@ document
 document
   .querySelector('#hero-reroll-btn')
   .addEventListener('click', rerollHandler);
+document
+  .querySelector('#back-btn')
+  .addEventListener('click', backButtonHandler);
