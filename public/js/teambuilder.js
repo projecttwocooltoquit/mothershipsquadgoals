@@ -3,9 +3,10 @@ let finalHeroChoice;
 
 const heroTypeHandler = (button) => {
   heroChoices = [];
-  const selectedStat = button.getAttribute('data-stat');
 
-  if (selectedStat === 'strength') {
+  const buttons = document.getElementsByClassName('user-choice');
+
+  if (button === buttons[0]) {
     heroes.forEach((hero) => {
       if (hero && hero.powerstats) {
         if (hero.powerstats.strength > 75) {
@@ -13,7 +14,7 @@ const heroTypeHandler = (button) => {
         }
       }
     });
-  } else if (selectedStat === 'intelligence') {
+  } else if (button === buttons[1]) {
     heroes.forEach((hero) => {
       if (hero && hero.powerstats) {
         if (hero.powerstats.intelligence > 75) {
@@ -21,7 +22,7 @@ const heroTypeHandler = (button) => {
         }
       }
     });
-  } else if (selectedStat === 'speed') {
+  } else if (button === buttons[2]) {
     heroes.forEach((hero) => {
       if (hero && hero.powerstats) {
         if (hero.powerstats.speed > 75) {
@@ -30,10 +31,10 @@ const heroTypeHandler = (button) => {
       }
     });
   }
+
   // chooses a random hero from the refined list based on stats
   const randomHeroChoice =
     heroChoices[Math.floor(Math.random() * heroChoices.length)];
-
   // creates an object with only the info we want for the db/cards
   const trimmedHero = {
     name: randomHeroChoice.name,
@@ -98,7 +99,6 @@ const rerollHandler = () => {
   // chooses a random hero from the refined list based on stats
   const randomHeroChoice =
     heroChoices[Math.floor(Math.random() * heroChoices.length)];
-
   // creates an object with only the info we want for the db/cards
   const trimmedHero = {
     name: randomHeroChoice.name,
@@ -143,7 +143,6 @@ const backButtonHandler = () => {
     });
 };
 
-document.querySelector('.stat-btn').addEventListener('click', heroTypeHandler);
 document
   .querySelector('#hero-sel-btn')
   .addEventListener('click', heroCommitHandler);
