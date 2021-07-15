@@ -9,9 +9,7 @@
 }
 
 button:hover {
-  color: var(--colorMain);
-  border-color: var(--colorThi);
-  border-style: solid;
+  color: white;
   box-shadow: 0 0px 10px 3px white;
   cursor:pointer;
 }
@@ -34,7 +32,7 @@ button:hover {
 
 
 
-/* Homepage classes*/
+/* Homepage / new account classes*/
 
 .homepage {
   background: linear-gradient(var(--colorSec), rgba(0, 0, 0, 0.75)), url(https://i.pinimg.com/originals/b7/fe/8e/b7fe8ef5c2d845b8725922b7873fd5f3.jpg);
@@ -46,17 +44,18 @@ button:hover {
 .intro {
   margin-left: 20%;
   margin-right: 20%;
-  margin-top: 3%;
-  margin-bottom: 7%;
+  margin-top: 5%;
   position: sticky;
 }
 
-.login {
+.inputBox {
   background-color: var(--color4);
   border-style: solid;
   border-color: var(--colorMain);
   box-shadow: 0 0px 24px 8px var(--colorThi);
   position: relative;
+  margin-top: 10%;
+  margin-bottom: 25%;
 }
 
 .inputTitle {
@@ -66,7 +65,7 @@ button:hover {
   font-weight: bolder;
 }
 
-.signIn {
+.signInBtn {
   color: var(--colorSec);
   font-family: sans-serif;
   font-weight: bolder;
@@ -81,7 +80,7 @@ button:hover {
   left: 27%;
 }
 
-.createAccount {
+.newHereBtn {
   color: var(--colorMain);
   font-family: sans-serif;
   font-weight: bolder;
@@ -95,13 +94,43 @@ button:hover {
   margin-bottom: 25%;
 }
 
+.createAccountBtn {
+  color: var(--colorSec);
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: larger;
+  padding: 0.5rem;
+  background-color: var(--colorMain);
+  border-radius: 20px;
+  border-style: solid;
+  border-color: var(--colorSec);
+  position: relative;
+  left: 22%;
+  margin: 3%;
+}
+
+.backBtn {
+  color: var(--colorSec);
+  font-family: sans-serif;
+  font-weight: bolder;
+  font-size: larger;
+  padding: 0.5rem;
+  background-color: var(--colorMain);
+  border-radius: 20px;
+  border-style: solid;
+  border-color: var(--colorSec);
+  position: relative;
+  left: 22%;
+  margin: 3%;
+}
+
 
 
 /* Teampage.handlebar Classes */
 
 .teampage {
   font-family: sans-serif;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), var(--colorSec)),
+  background: linear-gradient(rgba(0, 0, 0, 0.4), var(--colorSec)),
     url(https://images.hdqwalls.com/wallpapers/marvel-vs-dc-4k-iu.jpg)
       no-repeat;
   background-size: cover;
