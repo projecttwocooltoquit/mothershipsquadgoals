@@ -13,27 +13,23 @@ A simple web application that allows users to select a hero and then enjoy a tur
     - HTML
     - CSS
     - Javascript
-    - Sql
+    - SQL
     - Node.js
     - Handlebars
 
 # Description
 
-This browser application allows a user select a superheroe depending on a characteristic, ie: strength, inteligence, or speed.
+This browser application allows a user to select a superhero depending on a characteristic, ie: strength, inteligence, or speed.
 
 Upon accessing the web application, the user is taken to a login screen. If they are a first time user, they can click the link underneath the login form to sign up. 
 
 Once they have successfully signed in they can view their chosen hero, chose a new one, or battle a randomly generated hero. 
 
-Battle take place on the battle page and once there, users can pit their superhero against another to see who will win. The fighting is turn based and is generated quickly. If the user's hero wins, they will recieve a point that will be saved and can be viewed on the teampage. 
+Battles take place on the battle page and once there, users can pit their superhero against  one another to see who will win. The fighting is turn based and is generated quickly. If the user's hero wins, they will recieve a point that will be saved and can be viewed on the teampage. 
 
 # Setup/Installation Requirements
 
 The application can be accessed at http://herobattle.herokuapp.com/ 
-
-# Known Bugs
-
-There are no known bugs at this time.
 
 # License
 
@@ -42,6 +38,13 @@ Copyright (c) 2021 Mothership Squad Goals
 # Contact Information
 
 K-Leigh Marbury at laetaiustus@gmail.com
+github: https://github.com/KristaMarbury
+
 Brandon Akers at brandonakers729@gmail.com
+github: https://github.com/codeb-a
+
 Chris Van Etten at christophervanetten@gmail.com
+github: https://github.com/MistahV
+
 Emily Rendleman at emilyrendleman@gmail.com
+github: https://github.com/emrendle
