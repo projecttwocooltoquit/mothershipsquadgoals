@@ -13,7 +13,7 @@ button:hover {
   border-color: var(--colorThi);
   border-style: solid;
   box-shadow: 0 0px 10px 3px white;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .pageTop {
@@ -32,16 +32,14 @@ button:hover {
   color: var(--colorMain);
 }
 
-
-
 /* Homepage classes*/
 
 .homepage {
-  background: linear-gradient(var(--colorSec), rgba(0, 0, 0, 0.75)), url(https://i.pinimg.com/originals/b7/fe/8e/b7fe8ef5c2d845b8725922b7873fd5f3.jpg);
+  background: linear-gradient(var(--colorSec), rgba(0, 0, 0, 0.75)),
+    url(https://i.pinimg.com/originals/b7/fe/8e/b7fe8ef5c2d845b8725922b7873fd5f3.jpg);
   background-color: var(--colorSec);
   color: var(--colorMain);
 }
-
 
 .intro {
   margin-left: 20%;
@@ -95,15 +93,12 @@ button:hover {
   margin-bottom: 25%;
 }
 
-
-
 /* Teampage.handlebar Classes */
 
 .teampage {
   font-family: sans-serif;
   background: linear-gradient(rgba(0, 0, 0, 0.3), var(--colorSec)),
-    url(https://images.hdqwalls.com/wallpapers/marvel-vs-dc-4k-iu.jpg)
-      no-repeat;
+    url(https://images.hdqwalls.com/wallpapers/marvel-vs-dc-4k-iu.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
 }
@@ -184,8 +179,6 @@ button:hover {
   margin-top: 7%;
 }
 
-
-
 /* Battle.handlebar Classes */
 
 .battle {
@@ -257,14 +250,13 @@ button:hover {
   margin-bottom: 30%;
   height: 35%;
   overflow: hidden;
+  overflow: scroll;
   border-radius: 30px;
   border-width: 10px;
   border-style: solid;
   border-color: var(--colorSec);
   box-shadow: 0 0px 26px 10px var(--colorMain);
 }
-
-
 
 /* teambuilder.handlebar classes*/
 .navbar {
