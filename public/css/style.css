@@ -30,6 +30,8 @@ button:hover {
   color: var(--colorMain);
 }
 
+
+
 /* Homepage classes*/
 
 .homepage {
@@ -225,15 +227,13 @@ button:hover {
   text-align: center;
   text-shadow: -1px -1px var(--colorMain);
   background: var(--colorSec);
-  background-size: cover;
-  background-position: center center;
   padding: 2rem;
   width: 80%;
   margin-left: 15%;
   margin-right: 5%;
   margin-top: 45%;
   margin-bottom: 30%;
-  height: 57%;
+  height: fit-content;
   border-radius: 30px;
   border-style: solid;
   border-color: var(--colorMain);
@@ -247,15 +247,13 @@ button:hover {
   text-align: center;
   text-shadow: -1px -1px var(--colorMain);
   background: var(--colorSec);
-  background-size: cover;
-  background-position: center center;
   padding: 2rem;
   width: 80%;
   margin-left: 5%;
   margin-right: 15%;
   margin-top: 45%;
   margin-bottom: 30%;
-  height: 57%;
+  height: fit-content;
   border-radius: 30px;
   border-style: solid;
   border-color: var(--colorMain);
@@ -277,7 +275,7 @@ button:hover {
   margin-right: 10%;
   margin-top: 65%;
   margin-bottom: 30%;
-  height: 35%;
+  height: 30%;
   overflow: hidden;
   overflow: scroll;
   border-radius: 30px;
@@ -288,6 +286,15 @@ button:hover {
 }
 
 /* teambuilder.handlebar classes*/
+
+.teambuilder {
+  font-family: sans-serif;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)),
+    url(https://images.hdqwalls.com/wallpapers/batcave-4k-5r.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
 .navbar {
   background-color: black;
 }
@@ -309,7 +316,7 @@ button:hover {
 }
 
 .current-hero {
-  background: black;
+  background-color: black;
 }
 
 .card-content {
@@ -353,6 +360,8 @@ button:hover {
 .card-background {
   background-color: black;
 }
+
+
 
 /* Highscores*/
 .highscorepage {
