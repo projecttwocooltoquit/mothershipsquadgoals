@@ -1,3 +1,5 @@
+/* General Classes */
+
 :root {
   --colorMain: rgb(230, 195, 2);
   --colorSec: rgb(170, 3, 3);
@@ -6,30 +8,40 @@
   --color4: rgb(122, 2, 2);
 }
 
+button:hover {
+  color: var(--colorMain);
+  border-color: var(--colorThi);
+  border-style: solid;
+  box-shadow: 0 0px 10px 3px white;
+  cursor:pointer;
+}
+
+.pageTop {
+  background-color: black;
+  background: opacity(0.5);
+  border-bottom: 2px solid var(--colorThi);
+  width: 100%;
+}
+
+.pageTitle {
+  text-align: center;
+  font-size: xx-large;
+  padding: 1rem;
+  font-family: sans-serif;
+  font-weight: bolder;
+  color: var(--colorMain);
+}
+
+
+
 /* Homepage classes*/
 
 .homepage {
-  background: linear-gradient(var(--colorSec), rgba(0, 0, 0, 0.8)),
-    url(https://i.pinimg.com/originals/b7/fe/8e/b7fe8ef5c2d845b8725922b7873fd5f3.jpg);
+  background: linear-gradient(var(--colorSec), rgba(0, 0, 0, 0.75)), url(https://i.pinimg.com/originals/b7/fe/8e/b7fe8ef5c2d845b8725922b7873fd5f3.jpg);
   background-color: var(--colorSec);
   color: var(--colorMain);
 }
 
-.homepageTop {
-  background-color: black;
-  background: opacity(0.5);
-  width: 100%;
-}
-
-.homepageTitle {
-  text-align: center;
-  font-size: xx-large;
-  font-family: sans-serif;
-  font-weight: bolder;
-  color: var(--colorMain);
-  margin-top: 2%;
-  margin-bottom: 2%;
-}
 
 .intro {
   margin-left: 20%;
@@ -83,81 +95,96 @@
   margin-bottom: 25%;
 }
 
-button:hover {
-  border-color: var(--colorThi);
-  border-style: solid;
-  border-width: 3px;
-  box-shadow: 0 0px 10px 3px white;
-  cursor: pointer;
-}
+
 
 /* Teampage.handlebar Classes */
 
 .teampage {
   font-family: sans-serif;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(https://bloximages.newyork1.vip.townnews.com/theadvocate.com/content/tncms/assets/v3/editorial/2/54/2549120d-cab4-5fb6-af77-9f4c3d37bbaf/5cacf19c9fec0.image.jpg?resize=1200%2C642)
+  background: linear-gradient(rgba(0, 0, 0, 0.3), var(--colorSec)),
+    url(https://images.hdqwalls.com/wallpapers/marvel-vs-dc-4k-iu.jpg)
       no-repeat;
   background-size: cover;
   background-position: center center;
-  opacity: 1.3;
+}
+
+.cardTitle {
+  background-color: black;
+  color: var(--colorSec);
+  font-size: 2em;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bolder;
+  margin-top: 30%;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom: 2.5%;
+  border-radius: 20px;
+  box-shadow: 0 0px 14px 4px var(--colorMain);
 }
 
 .welcomeBack {
   color: black;
   font-weight: bolder;
+  font-size: larger;
+  text-align: center;
   text-shadow: -0.5px -0.5px var(--colorSec);
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(https://i.imgur.com/DQlvWhz.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
   padding: 2rem;
-  width: 60%;
-  margin-left: 25%;
+  width: 70%;
+  margin-left: 15%;
   margin-right: 15%;
-  margin-top: 45%;
-  margin-bottom: 30%;
-  height: 50%;
+  margin-bottom: 40%;
+  height: fit-content;
   border-radius: 20px;
+  border-width: 3px;
   border-style: solid;
-  border-color: var(--colorSec);
-  box-shadow: 0 0px 22px 3px white;
+  border-color: var(--colorThi);
+  box-shadow: 0 0px 22px 6px white;
   position: relative;
 }
 
 .yourSquad {
   color: black;
   font-weight: bolder;
-  text-shadow: -0.5px -0.5px var(--colorMain);
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(https://i.imgur.com/DF0PwFA.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
   padding: 2rem;
-  width: 60%;
+  width: 70%;
   margin-left: 15%;
-  margin-right: 25%;
-  margin-top: 45%;
+  margin-right: 15%;
   margin-bottom: 30%;
-  height: 50%;
+  height: fit-content;
   border-radius: 20px;
+  border-width: 3px;
   border-style: solid;
   border-color: var(--colorThi);
-  box-shadow: 0 0px 22px 3px white;
+  box-shadow: 0 0px 22px 6px white;
 }
 
 .teampageButtons {
   color: var(--colorMain);
   background-color: var(--colorSec);
+  font-size: large;
+  font-weight: bold;
+  font-family: sans-serif;
+  padding: 0.6rem;
   border-radius: 20px;
   border-style: solid;
   border-color: var(--colorThi);
   position: relative;
   flex-wrap: wrap;
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 6%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 7%;
 }
+
+
 
 /* Battle.handlebar Classes */
 
@@ -215,6 +242,7 @@ button:hover {
 
 .fightSim {
   color: white;
+  font-size: larger;
   font-weight: bolder;
   text-align: center;
   background: black;
@@ -228,12 +256,15 @@ button:hover {
   margin-top: 65%;
   margin-bottom: 30%;
   height: 35%;
+  overflow: hidden;
   border-radius: 30px;
   border-width: 10px;
   border-style: solid;
   border-color: var(--colorSec);
   box-shadow: 0 0px 26px 10px var(--colorMain);
 }
+
+
 
 /* teambuilder.handlebar classes*/
 .navbar {
