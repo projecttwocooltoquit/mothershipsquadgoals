@@ -11,6 +11,12 @@ router.post('/createuser', async (req, res) => {
   }
 });
 
+router.get('/', async (req, res) => {
+  const userData = await User.findOne({ where: { id: req.session.user_id } });
+
+  res.json(userData);
+});
+
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -50,20 +56,6 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
-  }
-});
-
-router.put('/updatescore', async (req, res) => {
-  // update a user by its `id` value
-  try {
-    const userData = await User.update(
-      { score: req.body.score },
-      { where: { id: req.session.id } }
-    );
-
-    res.status(200).json(userData);
-  } catch (err) {
-    res.status(500).json(err);
   }
 });
 
