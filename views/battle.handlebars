@@ -1,6 +1,6 @@
 <div class='columns battle'>
   <div class='column'>
-    
+
     <figure class='hero1'>
       {{#each heroes}}
         <div>
@@ -40,12 +40,11 @@
   <div class='column'>
     <figure class='fightSim' id='fight-sim'>
       <button class='button is-dark' id='commence-battle'>Let's BATTLE!</button>
-      {{!-- fun terminal thing here --}}
-      <p class='battle-info' id="stats"></p>
-      <p class='battle-info' id="attack"></p>
-      <p class='battle-info' id="hp"></p>
+      {{! fun terminal thing here }}
+      <p class='battle-info' id='stats'></p>
+      <p class='battle-info' id='attack'></p>
+      <p class='battle-info' id='hp'></p>
 
-</div>
     </figure>
   </div>
   <div class='column'>
@@ -72,7 +71,7 @@
         </div>
       </div>
     </figure>
-
+  </div>
+</div>
 <script src='/js/heroes.js'></script>
 <script src='/js/battle.js'></script>
-
