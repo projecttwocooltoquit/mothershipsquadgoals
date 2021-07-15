@@ -9,7 +9,11 @@ const heroTypeHandler = (button) => {
   if (button === buttons[0]) {
     heroes.forEach((hero) => {
       if (hero && hero.powerstats) {
-        if (hero.powerstats.strength > 75) {
+        if (
+          hero.powerstats.strength > 75 &&
+          hero.powerstats.intelligence !== 'null' &&
+          hero.powerstats.speed !== 'null'
+        ) {
           heroChoices.push(hero);
         }
       }
@@ -17,7 +21,11 @@ const heroTypeHandler = (button) => {
   } else if (button === buttons[1]) {
     heroes.forEach((hero) => {
       if (hero && hero.powerstats) {
-        if (hero.powerstats.intelligence > 75) {
+        if (
+          hero.powerstats.intelligence > 75 &&
+          hero.powerstats.strength !== 'null' &&
+          hero.powerstats.speed !== 'null'
+        ) {
           heroChoices.push(hero);
         }
       }
@@ -25,7 +33,11 @@ const heroTypeHandler = (button) => {
   } else if (button === buttons[2]) {
     heroes.forEach((hero) => {
       if (hero && hero.powerstats) {
-        if (hero.powerstats.speed > 75) {
+        if (
+          hero.powerstats.speed > 75 &&
+          hero.powerstats.intelligence !== 'null' &&
+          hero.powerstats.strength !== 'null'
+        ) {
           heroChoices.push(hero);
         }
       }
