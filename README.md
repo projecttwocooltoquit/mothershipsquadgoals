@@ -4,6 +4,9 @@ Built by Team Mothership Squad Goals
 
 A simple web application that allows users to select a hero and then enjoy a turn based battle simulator. A few screenshots of the website can be found below: 
 
+![](/images/squadgoalspic1.png)
+![](/images/squadgoalspic2.png)
+![](/images/squadgoalspic3.png)
 
 # Technologies Used
 
@@ -11,7 +14,7 @@ A simple web application that allows users to select a hero and then enjoy a tur
     - CSS
     - Javascript
     - Sql
-    - NodeJs
+    - Node.js
     - Handlebars
 
 # Description
@@ -39,3 +42,6 @@ Copyright (c) 2021 Mothership Squad Goals
 # Contact Information
 
 K-Leigh Marbury at laetaiustus@gmail.com
+Brandon Akers at brandonakers729@gmail.com
+Chris Van Etten at christophervanetten@gmail.com
+Emily Rendleman at emilyrendleman@gmail.com
