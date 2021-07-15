@@ -3,7 +3,7 @@ const { Hero, User } = require('../models');
 const withAuth = require('../utils/auth');
 const { json } = require('body-parser');
 const { builtinModules } = require('module');
-const heroes = require('../public/js/heroes.js');
+// const heroes = require('../public/js/heroes.js');
 
 router.get('/', (req, res) => {
   res.render('homepage');
