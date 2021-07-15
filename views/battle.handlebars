@@ -12,9 +12,9 @@
   <div class='column'>
     <figure class='hero1'>
       {{#each heroes}}
-        <div>
-          <div>
-            <figure class='image is-square'>
+        <div class='card'>
+          <div class='card-image'>
+            <figure class='image is-4by3'>
               <img src='{{imagesrc}}' alt='Superhero image' />
             </figure>
           </div>
@@ -40,6 +40,15 @@
                 Speed:
                 {{speed}}
               </p>
+            </div>
+          </div>
+        </div>
+      {{else}}
+        <div class='card'>
+          <div class='card-content'>
+            <div class='content'>
+              <p>You need a hero before you can battle! Head back to your team
+                page to get started.</p>
             </div>
           </div>
         </div>

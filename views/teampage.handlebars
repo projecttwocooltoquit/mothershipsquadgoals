@@ -9,7 +9,7 @@
     <h2 class='cardTitle'>Welcome!</h2>
     <div class='welcomeBack'>
       <p>What would you like to do?</p>
-      <button class='teampageButtons' id='editsquad-btn'>Edit My Hero</button>
+      <button class='teampageButtons' id='editsquad-btn'>Select A Hero</button>
       <button class='teampageButtons' id='highscores-btn'>View Highscores</button>
       <button class='teampageButtons' id='battle-btn'>Battle!</button>
     </div>
@@ -17,6 +17,7 @@
   <div class='column'>
     <h2 class='cardTitle'>Your Hero</h2>
     <div class='yourSquad'>
+
       {{#each heroes}}
         <div class='card'>
           <div class='card-image'>
@@ -46,6 +47,14 @@
                 Speed:
                 {{speed}}
               </p>
+            </div>
+          </div>
+        </div>
+      {{else}}
+        <div class='card'>
+          <div class='card-content'>
+            <div class='content'>
+              <p>You have no hero! Click on Select A Hero to get started!</p>
             </div>
           </div>
         </div>
