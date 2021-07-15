@@ -46,33 +46,6 @@ class Character {
       aliveBlurb.innerHTML = `${this.name} has been defeated!`;
       document.querySelector('#fight-sim').appendChild(aliveBlurb);
 
-      if (this.name !== pOneHero.name) {
-        // get user's score from back end
-        // add 1 if the user one
-        // write a put request to update the score by passing the score+1 from front end?
-        fetch('/api/users/')
-          .then((response) => response.text())
-          .then((data) => {
-            console.log(data);
-            let parsedData = JSON.parse(data);
-            console.log(parsedData);
-          });
-        // write put request here
-        // const response = await fetch(`/api/user/updatescore`, {
-        //   method: 'PUT',
-        //   body: JSON.stringify({  }),
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        // });
-
-        // if (response.ok) {
-        //   document.location.replace('/profile');
-        // } else {
-        //   alert('Failed to create project');
-        // }
-      }
-
       return false;
     }
     return true;
