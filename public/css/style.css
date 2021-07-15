@@ -30,8 +30,6 @@ button:hover {
   color: var(--colorMain);
 }
 
-
-
 /* Homepage classes*/
 
 .homepage {
@@ -308,14 +306,11 @@ button:hover {
 }
 
 .current-hero {
+  background-color: black;
   width: 50%;
 }
 
 .builder {
-  background-color: black;
-}
-
-.current-hero {
   background-color: black;
 }
 
@@ -361,7 +356,14 @@ button:hover {
   background-color: black;
 }
 
+.teamheight {
+  height: 100%;
+}
 
+.hero-image1 {
+  margin-top: 35%;
+  margin-bottom: 5%;
+}
 
 /* Highscores*/
 .highscorepage {
