@@ -1,12 +1,15 @@
+<div class='navbar'>
+  <button class='button glow nav-btn' id='back-btn'>Back To Teampage</button>
+</div>
+
 <div class='pageTop'>
-    <h1 class='pageTitle'>
+  <h1 class='pageTitle'>
     Let's BATTLE!!!
-    </h1>
-  </div>
+  </h1>
+</div>
 
 <div class='columns battle'>
   <div class='column'>
-
     <figure class='hero1'>
       {{#each heroes}}
         <div>
@@ -45,12 +48,10 @@
   </div>
   <div class='column'>
     <figure class='fightSim' id='fight-sim'>
-      <button class='button is-dark' id='commence-battle'>Let's BATTLE!</button>
-      {{! fun terminal thing here }}
+      <button class='button is-dark' id='commence-battle'>LET'S FIGHT!</button>
       <p class='battle-info' id='stats'></p>
       <p class='battle-info' id='attack'></p>
       <p class='battle-info' id='hp'></p>
-
     </figure>
   </div>
   <div class='column'>
@@ -58,7 +59,6 @@
       <div class='card glow'>
         <div class='card-image'>
           <figure class='image is-square' id='enemy-image'>
-
           </figure>
         </div>
         <div class='card-content'>
